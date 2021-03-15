@@ -1,0 +1,86 @@
+.heading{
+    text-align: center;
+    color: white;
+  
+}
+
+.font{
+    font-family: serif;
+}
+
+.box{
+    width:100%;
+    border-style: solid;
+    border-width: 2pt;
+    border-color: gray;
+    border-radius: 10px;
+    padding:20px 10px 20px 20px;
+    margin-top:10pt;
+    font-family: serif;
+
+    
+}
+
+
+.headingbox{
+    width: 94%;
+    margin-left:2.5%;
+    padding: 10pt;
+    background-color:#B71C1C;
+    font-family: serif;
+    /* border-radius: 10px; */
+}
+
+.displayBox{
+    display: inline;
+    float: left;
+    font-family: serif;
+}
+
+.doc{
+    width:25%;
+    border-style: solid;
+    border-width: 2pt;
+    border-color: gray;
+    border-radius: 10px;
+    margin-left:1%;
+    margin-top: 10pt;
+    padding: 10px;
+    font-family: serif;
+
+}
+
+.labelStyle{
+    font-size: 14pt;
+    float: left;
+    /* margin-top: 10px; */
+}
+.buttonStyle{
+    background-color: #B71C1C;
+    margin-left: 10%;
+    margin-top: 10px;
+    border-radius: 10px;
+    color:white;
+    font-family: serif;
+}
+span{
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+}
+
+.intervieScreen{
+    /* width:60%; */
+    /* display: inline-block; */
+    margin-top:20pt;
+    border-radius: 10px;
+}
+main{
+    width:100%
+}
+.bigBox{
+    width:60%;
+    margin-left: 2.5%;
+    /* margin-top: 10pt; */
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataCapture>
+  <TRANSACTIONINFO>
+    <prodType></prodType>
+    <transactionType></transactionType>
+  </TRANSACTIONINFO>
+  <CUSTOMERINFO>
+    <businessName>K.G. Saur</businessName>
+    <addressLine1>N.K. Street</addressLine1>
+    <addressLine2></addressLine2>
+    <city></city>
+    <state></state>
+    <postalCode></postalCode>
+  </CUSTOMERINFO>
+</dataCapture>

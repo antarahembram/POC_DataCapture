@@ -1,0 +1,12 @@
+<div class="displayBox doc" *ngIf="(listDoc | json) != '[]'">
+    <p style="font-weight: bold;">Generated Documents</p>
+    <div class="docListStyle" *ngFor="let v of listDoc">
+    <a [routerLink]="['/preview/',v]">{{v}}</a>
+    </div>
+</div>
+<div class="displayBox doc" *ngIf="(listDoc | json) == '[]'">
+    <p style="font-weight: bold;">Generated Documents</p>
+    <div class="nodoc">
+        {{nothing}}
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.9)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+
+
+    <div class="headingbox"><h1 class="heading">Electronic Form Request System</h1></div>
+
+
+
+<main class="">
+  
+<div class="displayBox bigBox">
+    <div class="box">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+            
+        <div class="form-group  "  >
+            
+            <label class="labelStyle" for="interviewList" >Template:</label>
+            <span>
+                <select   style="width:70%" formControlName="interviewList" class="form-control " (change)="changeWebsite($event)" >
+                    <option   disabled>Select Template </option>
+                    <!-- <option>Choose Website</option> -->
+                    <option class="" *ngFor="let v of list" [value]="v['id']" >{{v["description"]}}</option>
+                </select>
+            </span>
+        </div>
+        <div class="form-group"  >
+            <label class="labelStyle" for="files" >Choose XML:</label>
+       
+            <input type="file"  (change)="onFileChange($event)"  formControlName="files"  placeholder="" required>
+          </div>
+        <button class="btn btn-primary buttonStyle"  type="submit" >Submit</button>
+    </form>
+    </div>
+    <!-- <div style="height: 700px;" id="dataCaptureComponentContainer" class="intervieScreen"></div> -->
+    
+</div>
+
+</main>
+<app-document-pannel></app-document-pannel>
+
+

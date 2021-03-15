@@ -1,0 +1,28 @@
+.displayBox{
+    display: inline;
+    float: left;
+    font-family: serif;
+}
+.doc{
+    width:32%;
+    border-style: solid;
+    border-width: 2pt;
+    border-color: gray;
+    border-radius: 10px;
+    margin-left:1%;
+    margin-top: 10pt;
+    padding: 10px 10px 20px 10px;
+    font-size: 14pt;
+    font-family: serif;
+
+}   
+
+.nodoc{
+    font-size: 12pt;
+    font-family: serif;
+}
+
+.docListStyle{
+    font-size: 12pt;
+    font-family: serif;
+}

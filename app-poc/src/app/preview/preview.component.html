@@ -1,0 +1,17 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.9)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+
+
+<div class="headingbox"><h1 class="heading">Electronic Form Request System</h1></div>
+<div class="homeButton"><button id="submit" type="submit" [routerLink]="['']">Go back to Home</button></div>
+<pdf-viewer [src]="pdfSrc"
+              [render-text]="true"
+              style="display: block;"
+  ></pdf-viewer>

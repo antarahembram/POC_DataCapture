@@ -1,0 +1,22 @@
+#submit{
+    margin:auto;
+    align-self: center;
+    background-color: #B71C1C;
+    color: white;
+}
+.homeButton{
+    text-align: center;
+}
+.headingbox{
+    width: 94%;
+    margin-left:2.5%;
+    padding: 10pt;
+    background-color:#B71C1C;
+    font-family: serif;
+    /* border-radius: 10px; */
+}
+.heading{
+    text-align: center;
+    color: white;
+  
+}
