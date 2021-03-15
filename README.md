@@ -1,6 +1,7 @@
 # POC
 
 Machine should have Angular CLI and Java with Maven (It will work in eclipse or Intellij platform too without external Maven)
+
 1.Run the backend either in Eclipse or Intellij
 Or,
 Open "Datacapture" folder in commandpromt and run these commands: 
