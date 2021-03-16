@@ -27,6 +27,14 @@ export class ViewComponent implements OnInit {
     await this._dataCaptureService.getInterviewForms()
         .subscribe((res)=>{
         this.list = res.results
+        for(let i=0;i<this.list.length;i++)
+        {
+            if(this.list[i]['description']=="")
+            {
+              this.list.splice(i,i+1);
+              break;
+            }
+        }
         console.log(this.list)
    this.spinner.hide()
 
