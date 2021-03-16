@@ -63,7 +63,7 @@ export class ViewComponent implements OnInit {
     console.log(this.form.value)
     console.log(this.fileContent)
    var a=this.fileContent;
-    if(!a.includes("formId")){
+    if(this.fileContent &&  !a.includes("formId")){
       for(var i=a.length-1;i>0;i--)
       {
         console.log(a[i])
@@ -77,15 +77,24 @@ export class ViewComponent implements OnInit {
   console.log(output);
 
       output=btoa(output);
-     this.router.navigateByUrl('interview/'+this.id+","+output)
+     this.router.navigateByUrl('interview/'+this.id+","+output)}
+    
+    else{
+     this.router.navigateByUrl('interview/'+this.id+"," +" ")
+
+    }
          
   }
-}
+
   changeWebsite(e:any) {
     console.log(e.target.value);
   }
   
-  
+  gotoHome()
+{
+
+  this.router.navigateByUrl('/home');
+}
 
  
 }

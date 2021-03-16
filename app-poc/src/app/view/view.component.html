@@ -9,8 +9,15 @@
 
 
 
-    <div class="headingbox"><h1 class="heading">Electronic Form Request System</h1></div>
+<div class="headingbox">
+  <div style="width: 7%;" >
+<a href="#">
+      <img src="../assets/CGILOGO.png" alt="Go to Home" width="100%"></a></div>
 
+<div class="heading" >
+
+  <h1 >Electronic Form Request System</h1></div>
+</div>
 
 
 <main class="">
@@ -31,9 +38,9 @@
             </span>
         </div>
         <div class="form-group"  >
-            <label class="labelStyle" for="files" >Choose XML:</label>
+            <label class="labelStyle" for="files" >Choose XML: </label>
        
-            <input type="file"  (change)="onFileChange($event)"  formControlName="files"  placeholder="" required>
+            <input type="file" style="margin-left:1%;"  (change)="onFileChange($event)"  formControlName="files"  placeholder="" >
           </div>
         <button class="btn btn-primary buttonStyle"  type="submit" >Submit</button>
     </form>

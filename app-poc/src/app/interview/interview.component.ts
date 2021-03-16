@@ -18,6 +18,8 @@ export class InterviewComponent implements OnInit {
   public projectId:any;
   public documentName:any;
   public xml:any;
+  public dataCaptureComponent:any;
+
   constructor(private http:HttpClient, private router:Router,private activeroute:ActivatedRoute,private _datacaptureservice:DatacaptureService) { }
  public dataCaptureTransactionData:any;
 
@@ -29,9 +31,13 @@ export class InterviewComponent implements OnInit {
     var splitted = id.split(",");
     console.log(splitted);
     this.templateResourceId=splitted[0];
-    this.xml=atob(splitted[1])
-    var dataCaptureComponent:any;
-    dataCaptureComponent = new Thunderhead.DataCaptureComponent({
+    if(splitted[1]!=" "){
+    this.xml=atob(splitted[1])}
+    else
+    {
+      this.xml='<?xml version="1.0" encoding="UTF-8"?><dataCapture><formId>'+this.templateResourceId+'</formId></dataCapture>'
+    }
+    this.dataCaptureComponent = new Thunderhead.DataCaptureComponent({
       'server': 'https://na4.smartcommunications.cloud',
       'context': '/one/data-capture',
       'targetElementID': 'dataCaptureComponentContainer',
@@ -54,41 +60,35 @@ export class InterviewComponent implements OnInit {
     
     });
 
-    dataCaptureComponent.addListener({
+    this.dataCaptureComponent.addListener({
       interviewStarted: async()=> {
 
         console.log(this.xml)
-        dataCaptureComponent.setTransactionData(this.xml);
+        this.dataCaptureComponent.setTransactionData(this.xml);
       } 
   });
 
-     dataCaptureComponent.addListener({
-      interviewCancelled: ()=> {
+     this.dataCaptureComponent.addListener({
+      interviewCancelled: async()=> {
        alert("Interview cancelled")
       //  dataCaptureComponent.removeListener(interviewStarted)
-       dataCaptureComponent.destroy()
+       this.dataCaptureComponent.destroy()
        this.router.navigateByUrl('')
 
        
       } 
   });
-  dataCaptureComponent.addListener({
+  this.dataCaptureComponent.addListener({
     interviewFailed: ()=> {
      alert("Interview cancelled")
-     dataCaptureComponent.destroy()
+     this.dataCaptureComponent.destroy()
      this.router.navigateByUrl('')
 
      
     } 
 });
-//   dataCaptureComponent.addListener({
-//     interviewCompleted: ()=> {
-//      alert("Interview cancelled")
-//      dataCaptureComponent.destroy()
-     
-//     } 
-// });
-  dataCaptureComponent.addListener({
+
+  this.dataCaptureComponent.addListener({
     interviewSubmitted:((transactionData:any)=>{console.log(transactionData);
     this.dataCaptureTransactionData=transactionData.data;
     var a=atob(this.dataCaptureTransactionData)
@@ -112,14 +112,14 @@ console.log(this.dataCaptureTransactionData);
     this.router.navigateByUrl('/preview/'+this.documentName.pdfName);
 
   })
-    dataCaptureComponent.destroy();
+    this.dataCaptureComponent.destroy();
   })
 
 } 
 
 );
 
-     dataCaptureComponent.startInterviewForResource('157697023', this.templateResourceId, null, null);
+     this.dataCaptureComponent.startInterviewForResource('157697023', this.templateResourceId, null, null);
    
 }
 delay(ms: number) {
@@ -128,9 +128,8 @@ delay(ms: number) {
 
 gotoHome()
 {
-
-  this.router.navigateByUrl('');
+  this.dataCaptureComponent.removeListener()
+  this.dataCaptureComponent.destroy();
+  this.router.navigateByUrl('/home');
 }
-
-  
 }
