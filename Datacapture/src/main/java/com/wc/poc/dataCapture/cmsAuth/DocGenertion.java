@@ -32,7 +32,7 @@ import java.util.List;
 @Component
 public class DocGenertion {
 
-private static final Logger logger = LoggerFactory.getLogger(CmsClient.class);
+private static final Logger logger = LoggerFactory.getLogger(DocGenertion.class);
     private static final String PROTOCOL="https://";
     private static final String URL_PREFIX="one/oauth1";
     private static final String API_KEY="c62846e6-4b68-4fb7-a745-49045bf0fe03";
@@ -133,21 +133,7 @@ private static final Logger logger = LoggerFactory.getLogger(CmsClient.class);
                 .accept(MediaType.APPLICATION_JSON).get(ClientResponse.class).getEntity(File.class);
         String documentPath="..\\app-poc\\src\\assets\\document\\";
         File ff = new File(documentPath+DOCUMENT_NAME);
-//        if(ff.exists())
-//        {
-//            System.out.println("This exists");
-//            try{
-//            Files.delete(Paths.get(documentPath+DOCUMENT_NAME));}
-//            catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            if(ff.delete())
-//            {
-//                System.out.println("File deleted successfully");
-//            }
-//            ff = new File(documentPath+DOCUMENT_NAME);
-//
-//        }
+
         s.renameTo(ff);
         try {
             FileWriter fr = new FileWriter(s);
@@ -175,10 +161,10 @@ private static final Logger logger = LoggerFactory.getLogger(CmsClient.class);
         pathnames = f.list();
 
         // For each pathname in the pathnames array
-        for (String pathname : pathnames) {
-            // Print the names of files and directories
-            System.out.println(pathname);
-        }
+//        for (String pathname : pathnames) {
+//            // Print the names of files and directories
+//            System.out.println(pathname);
+//        }
         return pathnames;
     }
 

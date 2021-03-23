@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><dataCapture><TRANSACTIONINFO><prodType></prodType><transactionType></transactionType></TRANSACTIONINFO><CUSTOMERINFO><businessName>K.G. Saur</businessName><addressLine1>N.K. Street</addressLine1><addressLine2></addressLine2><city></city><state></state><postalCode></postalCode></CUSTOMERINFO><formId>158132313</formId></dataCapture>
+
+<?xml version="1.0" encoding="UTF-8"?><review-case createdate="02/Jun/2011 16:26:59" system="v5.0" batchid="158132318" transactionno="1" batchname="" version="5.0.17  build 41392"><change-sessions><session id="0" tag="TH\user1"/><session id="1" tag="TH\user2"/></change-sessions><transaction><objects><object name="CUSTOMER" bind="CUSTOMERINFO"><property name="businessName" value="K.G. Saur"/><property name="addressLine1" value="Just HR"/></object></objects></transaction></review-case>
+
+
+{
+  "projectId": 150800000,
+  "batchConfigResId": 1011000000766,
+  "transactionDataType": "string",
+  "transactionData": "PERhdGEgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOm5vTmFtZXNwYWNlU2NoZW1hTG9jYXRpb249ImhyX2RhdGEueHNkIj48L0RhdGE+",
+  "transactionRange": "1",
+  "batchConfigData": "PGJhdGNoY29uZmlnPjwvYmF0Y2hjb25maWc+",
+  "properties": [
+    {
+      "name": "merge.pdf",
+      "value": "true"
+    }
+  ]
+}

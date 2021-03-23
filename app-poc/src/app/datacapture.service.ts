@@ -12,28 +12,9 @@ export class DatacaptureService {
   docUrl : string ='http://localhost:8080/api/v1/generate';
   proectIdUrl : string ='http://localhost:8080/api/v1/getproject/';
   locationUrl : string='http://localhost:8080/api/v1/getDocList'
-  
-  // private loginUrl sss:string= 'https://na4.smartcommunications.cloud/one/idm_login';
+  draftXmlUrl : string = 'http://localhost:8080/api/v1/draftXml';
+  draftDocGenUrl : string = 'http://localhost:8080/api/v1/generateDraft';
 
-  // login2()
-  // {
-  //   return this.http.get('http://localhost:8080/api/v1/auth')
-  // }
-  // login(username:any,password:any)
-  // {
-  //   const body = new HttpParams()
-  //   .set(`username`, username)
-  //   .set(`password`, password);
-  // const headers = new HttpHeaders()
-  // .set('content-type','application/x-www-form-urlencoded')
-  // .set('Access-Control-Allow-Origin','http://localhost/4200/')
-  // .set('Access-Control-Allow-Credentials','true' )
-  // .set('Access-Control-Allow-Methods','POST')
-  // .set('Access-Control-Request-Headers','Special-Request-Header')
-  //   console.log(body.toString)
-  //   console.log(headers)
-  //   return this.http.post(this.loginUrl,body.toString(),{ headers, observe: 'response' })
-  // }
   getInterviewForms():Observable<any>
   {
   
@@ -52,5 +33,16 @@ export class DatacaptureService {
   getList()
   {
      return this.http.get(this.locationUrl);
+  }
+
+  getDraftXml(transactionData:any):Observable<any>
+  {
+    return this.http.post<any>(this.draftXmlUrl,transactionData)
+  }
+
+  generateDocumentDraft(transactionData:any):Observable<any>
+  {
+    return this.http.post<any>(this.draftDocGenUrl,transactionData)
+
   }
 }

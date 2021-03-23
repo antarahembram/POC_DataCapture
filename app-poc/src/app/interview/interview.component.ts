@@ -107,11 +107,16 @@ console.log(output);
 
 this.dataCaptureTransactionData=btoa(output)  }
 console.log(this.dataCaptureTransactionData);
-     this._datacaptureservice.getDocument(this.dataCaptureTransactionData).subscribe((res)=>{this.documentName=res;
-    console.log(this.documentName);
-    this.router.navigateByUrl('/preview/'+this.documentName.pdfName);
+    //this code was for document generation after interview
+    //  this._datacaptureservice.getDocument(this.dataCaptureTransactionData).subscribe((res)=>{this.documentName=res;
+    // console.log(this.documentName);
+    // this.router.navigateByUrl('/preview/'+this.documentName.pdfName);
 
-  })
+    
+    this.router.navigateByUrl('/draft/'+encodeURIComponent(this.dataCaptureTransactionData));
+    // this._datacaptureservice.getDraftXml(this.dataCaptureTransactionData).subscribe((res)=>)
+
+  // }+
     this.dataCaptureComponent.destroy();
   })
 

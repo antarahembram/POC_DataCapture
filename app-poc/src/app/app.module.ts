@@ -14,6 +14,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocumentPannelComponent } from './document-pannel/document-pannel.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { DrafteditorComponent } from './drafteditor/drafteditor.component';
  
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ViewComponent,
     InterviewComponent,
     PreviewComponent,
-    DocumentPannelComponent
+    DocumentPannelComponent,
+    DrafteditorComponent
 
   ],
   imports: [
