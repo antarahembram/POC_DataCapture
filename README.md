@@ -9,4 +9,6 @@ Open "Datacapture" folder in commandpromt and run these commands:
 mvn clean install
 mvn spring-boot:run
 
-2.To run the frontend open "app-poc" folder in command prompt and run this command - ng serve
+2.To run the frontend open "app-poc" folder in command prompt and run these command 
+npm install --save-dev @angular-devkit/build-angular
+- ng serve
