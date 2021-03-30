@@ -61,7 +61,10 @@ public class CmsController {
 
     }
 
-
+    @GetMapping("/getResource/{resourceId}")
+    public ResponseEntity<?> getResource(@PathVariable("resourceId") String resourceId) {
+        return new ResponseEntity<String>(cmsService.getResource(resourceId), HttpStatus.OK);
+    }
 
 //    @GetMapping("/auth")
 //    public ResponseEntity<?> auth() {

@@ -15,7 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocumentPannelComponent } from './document-pannel/document-pannel.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { DrafteditorComponent } from './drafteditor/drafteditor.component';
- 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,6 @@ import { DrafteditorComponent } from './drafteditor/drafteditor.component';
     PreviewComponent,
     DocumentPannelComponent,
     DrafteditorComponent
-
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { DrafteditorComponent } from './drafteditor/drafteditor.component';
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   
   providers: [DatacaptureService],

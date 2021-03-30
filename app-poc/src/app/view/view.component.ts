@@ -5,7 +5,9 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import * as JsonToXML from "js2xmlparser";
+
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -16,14 +18,20 @@ export class ViewComponent implements OnInit {
   public id:any;
   public fileData:any;
   fileContent: any;
-
+  public prefilledData: any;
 
   constructor(private _dataCaptureService:DatacaptureService,private router:Router,private http:HttpClient,private spinner: NgxSpinnerService) { }
   public model:any;
+
+
   async ngOnInit() {
- 
+
+    this.http.get('../assets/userdetails.json').subscribe((res)=>{console.log(res);
+    this.prefilledData=res;
+    })
       this.spinner.show();
     
+      
     await this._dataCaptureService.getInterviewForms()
         .subscribe((res)=>{
         this.list = res.results
@@ -45,7 +53,7 @@ export class ViewComponent implements OnInit {
 
   
   form = new FormGroup({
-    interviewList: new FormControl('', Validators.required),
+    interviewList: new FormControl('', [Validators.required,Validators.minLength(0)]),
     files: new FormControl(null, Validators.required)
   });
   
@@ -68,28 +76,56 @@ export class ViewComponent implements OnInit {
   submit(){
     
     this.id= (this.form.value.interviewList);
-    console.log(this.form.value)
-    console.log(this.fileContent)
-   var a=this.fileContent;
-    if(this.fileContent &&  !a.includes("formId")){
-      for(var i=a.length-1;i>0;i--)
+    var userId=this.form.value.files;
+    console.log(userId);
+    
+    if(!this.form.value.interviewList)
+    {
+      alert("Please select one template")
+    }
+    else{
+    if(userId!=null)
+    {
+      var m=this.prefilledData.userIds;
+      console.log(m);
+      var ind=-1;
+      var showAlert=-1;
+      for(ind=0;ind<m.length;ind++)
       {
-        console.log(a[i])
-        if(a[i]=="/" && a[i-1]=="<")
+        if(m[ind]==userId)
         {
+          showAlert=ind;
           break;
         }
       }
-  var formID = "<formId>"+ this.id+"</formId>";
-  var output= [a.slice(0, i-1), formID, a.slice(i-1)].join('');
-  console.log(output);
+      console.log(showAlert);
+      if(showAlert==-1)
+      {
+        alert("No records matched, kindly enter manually.")
+      }
+      else{
+      var a=JsonToXML.parse("dataCapture",this.prefilledData.userDetails[ind]);
+      console.log(a);
+      if(  !a.includes("formId")){
+          for(var i=a.length-1;i>0;i--)
+          {
+            console.log(a[i])
+            if(a[i]=="/" && a[i-1]=="<")
+            {
+              break;
+            }
+          }
+        var formID = "<formId>"+ this.id+"</formId>";
+        var output= [a.slice(0, i-1), formID, a.slice(i-1)].join('');
+        console.log(output);
 
-      output=btoa(output);
-     this.router.navigateByUrl('interview/'+this.id+","+output)}
-    
+        output=btoa(output);
+        this.router.navigateByUrl('interview/'+this.id+","+output)
+      }}
+    }
     else{
-     this.router.navigateByUrl('interview/'+this.id+"," +" ")
-
+      this.router.navigateByUrl('interview/'+this.id+"," +" ")
+    }
     }
          
   }

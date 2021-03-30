@@ -37,6 +37,7 @@ public class DraftEditor {
     private static final String THUNDERHEAD_PART="na4.smartcommunications.cloud";
     private static final String GENERATE_DRAFT="/api/v8/job/generateDraft";
     private static final String GENERATE_DOC="/api/v8/job/finalizeDraft";
+    private static final String GET_KEYWORD="/cms/v5/resources/";
 
     @Autowired
     DocGenertion docGenertion;
@@ -226,6 +227,35 @@ public class DraftEditor {
         Pdf pdf= new Pdf(DOCUMENT_NAME,documentPath);
         System.out.println(pdf.getPdfName());
         return  pdf;
+    }
+
+
+    public String getResource(String resourceId)
+    {
+
+        ClientConfig clientConfig = new DefaultClientConfig();
+        clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
+        Client client = Client.create(clientConfig);
+        CustomAuthRequest customAuthRequest = null;
+        WebResource res=null ;
+        CmsClient cmsClient=new CmsClient();
+        try {
+            String path=PROTOCOL+THUNDERHEAD_PART+"/"+URL_PREFIX+GET_KEYWORD +resourceId;
+
+            res = client.resource(path);
+            customAuthRequest = new CustomAuthRequest("GET", new URL(PROTOCOL+THUNDERHEAD_PART+"/"+URL_PREFIX+GET_KEYWORD+resourceId));
+        } catch (MalformedURLException e) {
+            logger.error("Unable to create the URL", e);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String r1=null;
+        r1=res.header(HttpHeaders.AUTHORIZATION,cmsClient.generateOAuthHeader(customAuthRequest, API_KEY, SHARED_SECRET, SERVICE_ACCOUNT))
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class).getEntity(String.class);
+        r1=r1.replace("while(1);","");
+        return r1;
     }
 
 }

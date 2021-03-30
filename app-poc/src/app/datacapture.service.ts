@@ -14,7 +14,7 @@ export class DatacaptureService {
   locationUrl : string='http://localhost:8080/api/v1/getDocList'
   draftXmlUrl : string = 'http://localhost:8080/api/v1/draftXml';
   draftDocGenUrl : string = 'http://localhost:8080/api/v1/generateDraft';
-
+  resUrl: string ='http://localhost:8080/api/v1/getResource/'
   getInterviewForms():Observable<any>
   {
   
@@ -44,5 +44,10 @@ export class DatacaptureService {
   {
     return this.http.post<any>(this.draftDocGenUrl,transactionData)
 
+  }
+
+  getResource(resourceId:any):Observable<any>
+  {
+    return this.http.get<any>(this.resUrl+resourceId);
   }
 }

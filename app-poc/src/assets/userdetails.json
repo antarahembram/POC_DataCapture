@@ -1,0 +1,69 @@
+{
+    "userIds":[
+        110,
+        111,
+        112,
+        113,
+        114
+
+
+    ],
+    "userDetails":
+    [
+        {
+            "CUSTOMERINFO": {
+                "businessName": "K.G. Saur",
+                "addressLine1": "N.K. Street",
+                "addressLine2": ""
+            },
+            "TRANSACTIONINFO":{
+                "acctNumber":1234567890,
+                "merchant" : "ABC Pvt. Ltd."
+
+            }
+        },
+        {
+            "CUSTOMERINFO": {
+                "businessName": "M.D. Nath",
+                "addressLine1": "P.K. Colony, Gurgaon"
+            },
+            "TRANSACTIONINFO":{
+                "acctNumber": 9887654321,
+                "merchant" : "ABC Pvt. Ltd."
+
+            }
+        },
+        {
+            "CUSTOMERINFO": {
+                "businessName": "K.L. Nath",
+                "addressLine1": "P.K. Colony, Gurgaon"
+            },
+            "TRANSACTIONINFO":{
+                "acctNumber": 1425364712,
+                "merchant" : "ABC Pvt. Ltd."
+
+            }
+        },
+        {
+            "CUSTOMERINFO": {
+                "businessName": "Dan Geller",
+                "addressLine1": "P.K. Colony, Gurgaon"
+            },
+            "TRANSACTIONINFO":{
+                "acctNumber": 9887654321
+
+            }
+        },
+        {
+            "CUSTOMERINFO": {
+                "businessName": "R. Green",
+                "addressLine1": "R.D. Street"
+            },
+            "TRANSACTIONINFO":{
+                "acctNumber": 9887654321,
+                "merchant" : "PayS"
+
+            }
+        }
+    ]
+}

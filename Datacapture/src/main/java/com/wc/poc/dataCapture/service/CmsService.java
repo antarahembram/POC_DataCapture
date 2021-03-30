@@ -14,4 +14,6 @@ public interface CmsService {
 
     DraftXml getDraftXml(String  transactionData);
     Pdf generateDocumentDaft(String xml);
+
+    String getResource(String resourceId);
 }

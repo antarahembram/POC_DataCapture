@@ -19,7 +19,7 @@ export class InterviewComponent implements OnInit {
   public documentName:any;
   public xml:any;
   public dataCaptureComponent:any;
-
+  public showDraft=false;
   constructor(private http:HttpClient, private router:Router,private activeroute:ActivatedRoute,private _datacaptureservice:DatacaptureService) { }
  public dataCaptureTransactionData:any;
 
@@ -43,12 +43,6 @@ export class InterviewComponent implements OnInit {
       'targetElementID': 'dataCaptureComponentContainer',
       'templateResourceId': this.templateResourceId,
       'projectId':'157697023',
-
-      // 'authUrl': 'https://na4.smartcommunications.cloud/one/saml/login',
-			// 'authParams': 'targetURL=' + encodeURIComponent('https://na4.smartcommunications.cloud/one/data-capture/interview.jsp?hostDomain=' +
-      //       encodeURIComponent('http://localhost:4200')),
-    //    'authUrl':'https://na4.smartcommunications.cloud/one/idm_login',
-    //  'authParams': 'username:om.prakash@cgi.com.partner&password:Scomm$0125',
       'loadStartupConfig': function() {
         return {
             'version': '1',
@@ -112,8 +106,32 @@ console.log(this.dataCaptureTransactionData);
     // console.log(this.documentName);
     // this.router.navigateByUrl('/preview/'+this.documentName.pdfName);
 
+    this._datacaptureservice.getResource(this.templateResourceId).subscribe((res)=>{console.log(res)
+    var resource=res;
+    for(i=0;i<resource.keyword.length;i++)
+    {
+      if(resource.keyword[i]=="EDIT")
+      {
+        this.showDraft=true;
+        break;
+      }
+    }
+    if(this.showDraft)
+    {
+      this.router.navigateByUrl('/draft/'+encodeURIComponent(this.dataCaptureTransactionData));
+    }
+    else{
+      this._datacaptureservice.getDocument(this.dataCaptureTransactionData).subscribe(
+        (res)=>{this.documentName=res;
+          console.log(this.documentName);
+          this.router.navigateByUrl('/preview/'+this.documentName.pdfName);
+
+        }
+      )
+    }
+    })
     
-    this.router.navigateByUrl('/draft/'+encodeURIComponent(this.dataCaptureTransactionData));
+    // this.router.navigateByUrl('/draft/'+encodeURIComponent(this.dataCaptureTransactionData));
     // this._datacaptureservice.getDraftXml(this.dataCaptureTransactionData).subscribe((res)=>)
 
   // }+

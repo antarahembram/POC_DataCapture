@@ -30,21 +30,28 @@
             
             <label class="labelStyle" for="interviewList" >Template:</label>
             <span>
-                <select   style="width:70%" formControlName="interviewList" class="form-control " (change)="changeWebsite($event)" >
+                <select required  style="width:70%" formControlName="interviewList" class="form-control " (change)="changeWebsite($event)" >
                     <option   disabled>Select Template </option>
                     <!-- <option>Choose Website</option> -->
-                    <option class="" *ngFor="let v of list" [value]="v['id']" >{{v["description"]}}</option>
+                    <option   class="" *ngFor="let v of list" [value]="v['id']" >{{v["description"]}}</option>
                 </select>
             </span>
         </div>
         <div class="form-group"  >
-            <label class="labelStyle" for="files" >Choose XML: </label>
+            <label class="labelStyle" for="files" >Customer ID: </label>
        
-            <input type="file" style="margin-left:1%;"  (change)="onFileChange($event)"  formControlName="files"  placeholder="" >
+            <!-- <input type="file" style="margin-left:1%;"  (change)="onFileChange($event)"  formControlName="files"  placeholder="" > -->
+            <input type="text" style="margin-left:1%;"   formControlName="files"  placeholder="" >
+         
           </div>
         <button class="btn btn-primary buttonStyle"  type="submit" >Submit</button>
     </form>
     </div>
+   
+
+
+
+
     <!-- <div style="height: 700px;" id="dataCaptureComponentContainer" class="intervieScreen"></div> -->
     
 </div>

@@ -63,4 +63,9 @@ public class CmsServiceImpl implements  CmsService{
         return draftEditor.generateDocument(xml);
     }
 
+    @Override
+    public String getResource(String resourceId) {
+        return draftEditor.getResource(resourceId);
+    }
+
 }
