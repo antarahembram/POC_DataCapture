@@ -23,7 +23,8 @@
             "allowedCommonJsDependencies": [
               "ng2-pdf-viewer",
 							"pdfjs-dist/es5/build/pdf",
-              "pdfjs-dist/es5/web/pdf_viewer"
+              "pdfjs-dist/es5/web/pdf_viewer",
+              "js2xmlparser"
            ],
             "outputPath": "dist/app-poc",
             "index": "src/index.html",
@@ -42,7 +43,6 @@
             ],
             "styles": [
               
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/assets/bootstrap.css"
             ],
