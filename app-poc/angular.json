@@ -36,15 +36,22 @@
               "src/assets",
               "src/data-capture-api-min.js",
               "src/assets/json2.min.js",
-              "src/login.min.js"
+              "src/draft-editor-api-min.js",
+              "src/login.min.js",
+              "src/assets/userdetails.json"
             ],
             "styles": [
-              "src/styles.css"
+              
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/assets/bootstrap.css"
             ],
             "scripts": ["src/data-capture-api-min.js",
             "src/assets/json2.min.js",
             "src/data-capture-api-min.js",
-            "src/login.min.js"]
+            "src/draft-editor-api-min.js",
+            "src/login.min.js",
+            "src/assets/bootstrap.js"]
           },
           "configurations": {
             "production": {
@@ -106,6 +113,7 @@
             ],
             "styles": [
               
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
