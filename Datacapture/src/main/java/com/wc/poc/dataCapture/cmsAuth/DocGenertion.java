@@ -151,7 +151,7 @@ private static final Logger logger = LoggerFactory.getLogger(DocGenertion.class)
         return  pdf;
     }
     public String[] getListOfFiles(){
-        String[] pathnames;
+        String[] pathnames=null;
 
         // Creates a new File instance by converting the given pathname string
         // into an abstract pathname
